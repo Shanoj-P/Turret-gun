@@ -1,0 +1,28 @@
+<launch>
+
+  <arg name="model" default="$(find turret_gun_description)/urdf/turret_gun.xacro"/>
+  <arg name="gui" default="true"/>
+  <arg name="rvizconfig" default="$(find turret_gun_description)/config/rviz.rviz"/>
+  <arg name="world" default="$(find turret_gun_description)/world/person.world"/> 
+
+
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
+  
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output= 'screen'/>
+
+  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
+  
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world)"/>
+    <arg name="paused" value="true"/>              
+    <arg name="use_sim_time" value="true"/>          
+    <arg name="gui" value="true"/>                 
+    <arg name="headless" value="false"/>            
+  </include>
+  <rosparam file="$(find turret_gun_description)/config/position_controller.yaml" command="load" />
+  <node pkg="controller_manager" type="spawner" name="controller_spawner" args=" joint_state_controller joint_base_controller joint_turret_base_controller joint_turret_controller"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-param robot_description -urdf -model turret_gun"/>
+</launch>

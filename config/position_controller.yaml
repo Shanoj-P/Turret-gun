@@ -1,0 +1,30 @@
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+joint_base_controller:
+  type: position_controllers/JointPositionController
+  joint: base_joint
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+joint_turret_base_controller:
+  type: position_controllers/JointPositionController
+  joint: turret_base_joint
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+joint_turret_controller:
+  type: position_controllers/JointPositionController
+  joint: turret_joint
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+
+# joint_slider1_controller:
+#   type: position_controllers/JointPositionController
+#   joint: Slider61
+#   pid: {p: 100.0, i: 0.01, d: 10.0}
+
+# joint_slider2_controller:
+#   type: position_controllers/JointPositionController
+#   joint: Slider60
+#   pid: {p: 100.0, i: 0.01, d: 10.0}
+
+# joint_slider3_controller:
+#   type: position_controllers/JointPositionController
+#   joint: Slider62
+#   pid: {p: 100.0, i: 0.01, d: 10.0}

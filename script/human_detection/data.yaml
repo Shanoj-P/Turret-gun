@@ -1,0 +1,7 @@
+path: /home/shanoj/catkin_ws/src/turret_gun_description/script/human_detection/person_dataset
+train: ./images/train  # Path to the training images
+val: ./images/val 
+
+nc: 1
+
+names: ['person']

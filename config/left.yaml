@@ -1,0 +1,35 @@
+image_width: 640
+image_height: 480
+camera_name: left
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [807.49113,   0.     , 362.02542,
+           0.     , 814.5706 , 161.2981 ,
+           0.     ,   0.     ,   1.     ]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.075112, -0.451198, -0.049539, 0.025915, 0.000000]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [ 0.99808561,  0.05529737,  0.02770054,
+         -0.05591756,  0.99818993,  0.02213782,
+         -0.02642624, -0.02364439,  0.9993711 ]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [871.22375,   0.     , 341.38823,   0.     ,
+           0.     , 871.22375, 108.2921 ,   0.     ,
+           0.     ,   0.     ,   1.     ,   0.     ]
+
+stereo:
+  min_disparity: 0
+  num_disparities: 128
+  max_disparity: 256
+  block_size: 5
+  speckle_filtering: true
+  speckle_window_size: 50
+  speckle_range: 32

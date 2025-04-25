@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="usb_cam" type="usb_cam_node" name="left">
+    <param name="video_device" value="/dev/video2"/>
+    <param name="image_width" value="640"/>
+    <param name="image_height" value="480"/>
+    <param name="pixel_format" value="yuyv"/>
+    <param name="camera_frame_id" value="left_camera"/>
+    <remap from="image_raw" to="/stereo/left/image_raw"/>
+    <remap from="camera_info" to="/stereo/left/camera_info"/>
+  </node>
+</launch>

@@ -1,0 +1,12 @@
+<launch>
+  <!-- Start the nodelet manager -->
+  <node pkg="nodelet" type="nodelet" name="depth_image_proc_manager" args="manager"/>
+
+  <!-- Load the point_cloud_xyzrgb nodelet -->
+  <node pkg="nodelet" type="nodelet" name="point_cloud_xyzrgb" args="load depth_image_proc/point_cloud_xyzrgb depth_image_proc_manager">
+    <!-- Remap topics to the stereo camera output -->
+    <remap from="image_rect" to="/stereo/depth_registered/image_raw"/>
+    <remap from="depth_image" to="/stereo/depth_registered/image_raw"/>
+    <remap from="camera_info" to="/stereo/left/camera_info"/>
+  </node>
+</launch>

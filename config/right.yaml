@@ -1,0 +1,35 @@
+image_width: 640
+image_height: 480
+camera_name: right
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [803.96249,   0.     , 292.13075,
+           0.     , 818.67083, 133.81212,
+           0.     ,   0.     ,   1.     ]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.161060, -0.631973, -0.055150, -0.010042, 0.000000]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [ 0.99855269,  0.00538983, -0.05351139,
+         -0.00661438,  0.99971969, -0.02273326,
+          0.05337386,  0.0230543 ,  0.99830843]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [871.22375,   0.     , 341.38823, -84.2451 ,
+           0.     , 871.22375, 108.2921 ,   0.     ,
+           0.     ,   0.     ,   1.     ,   0.     ]
+
+# stereo:
+#   min_disparity: 0
+#   num_disparities: 128
+#   max_disparity: 256
+#   block_size: 5
+#   speckle_filtering: true
+#   speckle_window_size: 50
+#   speckle_range: 32

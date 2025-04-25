@@ -1,0 +1,33 @@
+<launch>
+    <!-- Set the namespace for stereo image processing -->
+    <group ns="stereo">
+        <!-- Parameters for stereo image processing -->
+        <arg name="left_camera" default="/left_camera1/image_raw"/>
+        <arg name="right_camera" default="/right_camera1/image_raw"/>
+        <arg name="left_info" default="/left_camera1/camera_info"/>
+        <arg name="right_info" default="/right_camera1/camera_info"/>
+        <arg name="depth_image" default="/stereo/points2"/>
+
+        <!-- Stereo Image Processor -->
+        <node name="stereo_image_proc" pkg="stereo_image_proc" type="stereo_image_proc" output="screen">
+            <param name="left_camera_info" value="$(arg left_info)"/>
+            <param name="right_camera_info" value="$(arg right_info)"/>
+            <remap from="left/image_raw" to="$(arg left_camera)"/>
+            <remap from="right/image_raw" to="$(arg right_camera)"/>
+            <remap from="left/camera_info" to="$(arg left_info)"/>
+            <remap from="right/camera_info" to="$(arg right_info)"/>
+        </node>
+
+        <!-- Publish depth information (stereo disparity) -->
+        <node name="depth_image" pkg="image_transport" type="republish" output="screen">
+            <remap from="in" to="/stereo/disparity" />
+            <remap from="out" to="$(arg depth_image)" />
+        </node>
+        <node name="left_camera" pkg="gazebo_ros" type="gazebo_ros_camera" >
+            <param name="camera_info_topic" value="/stereo/left/camera_info"/>
+        <!-- other camera parameters -->
+        </node>
+
+    </group>
+</launch>
+

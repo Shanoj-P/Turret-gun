@@ -1,0 +1,451 @@
+<?xml version="1.0" ?>
+<robot name="turret_gun" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<link name="world"/>
+
+<xacro:include filename="$(find turret_gun_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find turret_gun_description)/urdf/turret_gun.trans" />
+<xacro:include filename="$(find turret_gun_description)/urdf/turret_gun.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="9.373521496663862e-05 -6.361272598687226e-05 0.027170568172431686" rpy="0 0 0"/>
+    <mass value="41.10708435453026"/>
+    <inertia ixx="0.60785" iyy="0.604355" izz="1.16024" ixy="-0.0" iyz="3.1e-05" ixz="-0.000332"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+<joint name="world_joint" type="fixed">
+  <parent link="world"/>
+  <child link="base_link"/>
+  <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+</joint>
+
+<link name="turret_arm_1">
+  <inertial>
+    <origin xyz="-0.026938764185033902 -0.12059999992626305 -9.525817197669761e-05" rpy="0 0 0"/>
+    <mass value="6.701140800274201"/>
+    <inertia ixx="0.032778" iyy="0.031265" izz="0.062512" ixy="0.0" iyz="0.0" ixz="1.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.12 -0.3116" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/turret_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.12 -0.3116" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/turret_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="damper_1">
+  <inertial>
+    <origin xyz="-0.04970680527491242 -4.182806920272064e-07 0.011478551088175137" rpy="0 0 0"/>
+    <mass value="0.027893148203222425"/>
+    <inertia ixx="1e-06" iyy="4.1e-05" izz="4.1e-05" ixy="0.0" iyz="-0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.05 -0.06 -0.3146" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/damper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.05 -0.06 -0.3146" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/damper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="damper__1__1">
+  <inertial>
+    <origin xyz="-0.04970680801063629 4.1828071395411115e-07 0.011478551406114257" rpy="0 0 0"/>
+    <mass value="0.027893146719868547"/>
+    <inertia ixx="1e-06" iyy="4.1e-05" izz="4.1e-05" ixy="-0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.05 0.0612 -0.3146" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/damper__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.05 0.0612 -0.3146" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/damper__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="damper_piston_1">
+  <inertial>
+    <origin xyz="-0.08651883402817447 -9.15795217437676e-14 -0.0007071183360775057" rpy="0 0 0"/>
+    <mass value="0.03302454957422005"/>
+    <inertia ixx="0.0" iyy="5.2e-05" izz="5.2e-05" ixy="-0.0" iyz="0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1125 -0.06 -0.3266" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/damper_piston_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1125 -0.06 -0.3266" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/damper_piston_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="damper_piston__1__1">
+  <inertial>
+    <origin xyz="-0.08651883402817127 9.139911050226601e-14 -0.0007071183360772282" rpy="0 0 0"/>
+    <mass value="0.033024549574216806"/>
+    <inertia ixx="0.0" iyy="5.2e-05" izz="5.2e-05" ixy="0.0" iyz="-0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1125 0.0612 -0.3266" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/damper_piston__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1125 0.0612 -0.3266" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/damper_piston__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gun_mount_1">
+  <inertial>
+    <origin xyz="-0.10430325878831453 -0.09059999481953235 -0.0024438005616064795" rpy="0 0 0"/>
+    <mass value="5.108773316435007"/>
+    <inertia ixx="0.008872" iyy="0.042133" izz="0.050807" ixy="0.0" iyz="0.0" ixz="-3.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.27 -0.09 -0.3116" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/gun_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.27 -0.09 -0.3116" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/gun_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hog_saddle_1">
+  <inertial>
+    <origin xyz="-7.263126439782663e-06 0.0009074545183550813 -0.02920662033966631" rpy="0 0 0"/>
+    <mass value="0.6599456694689808"/>
+    <inertia ixx="0.000511" iyy="0.000513" izz="0.000712" ixy="0.0" iyz="-9.8e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.484 0.0006 -0.3196" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/hog_saddle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.484 0.0006 -0.3196" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/hog_saddle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hog_saddle_base_1">
+  <inertial>
+    <origin xyz="0.333996251970648 -0.19576492037139268 -0.2628797683325972" rpy="0 0 0"/>
+    <mass value="1.299713336142242"/>
+    <inertia ixx="0.001224" iyy="0.001499" izz="0.001644" ixy="0.0" iyz="0.000336" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.818 -0.181 -0.5072" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/hog_saddle_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.818 -0.181 -0.5072" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/hog_saddle_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tighter_1">
+  <inertial>
+    <origin xyz="0.3140012995651275 -0.2115992496008716 -0.2646186519655006" rpy="0 0 0"/>
+    <mass value="0.062218783214771464"/>
+    <inertia ixx="6.2e-05" iyy="6.2e-05" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.798 -0.181 -0.5072" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/tighter_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.798 -0.181 -0.5072" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/tighter_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="m4_carbine_rifle_1">
+  <inertial>
+    <origin xyz="0.41919926709229727 -0.21870797450273088 -0.20055020644160343" rpy="0 0 0"/>
+    <mass value="10.846149070051426"/>
+    <inertia ixx="0.024442" iyy="0.296206" izz="0.318682" ixy="-0.007435" iyz="9.9e-05" ixz="-0.000313"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.768104 -0.249 -0.4622" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/m4_carbine_rifle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.768104 -0.249 -0.4622" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/m4_carbine_rifle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="sensor_module_1">
+  <inertial>
+    <origin xyz="0.04525296540620233 4.167673151034279e-16 0.02959095417462132" rpy="0 0 0"/>
+    <mass value="7.139631620921316"/>
+    <inertia ixx="0.014399" iyy="0.00819" izz="0.015814" ixy="0.0" iyz="-0.0" ixz="3.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.533 0.0006 -0.3246" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/sensor_module_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.533 0.0006 -0.3246" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/sensor_module_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_camera_1">
+  <inertial>
+    <origin xyz="6.661338147750939e-16 3.122502256758253e-17 -5.551115123125783e-17" rpy="0 0 0"/>
+    <mass value="0.07398450699203961"/>
+    <inertia ixx="4e-06" iyy="7e-06" izz="7e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.533 -0.03095 -0.3541" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/left_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.533 -0.03095 -0.3541" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/left_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_camera_1">
+  <inertial>
+    <origin xyz="6.661338147750939e-16 -6.938893903907228e-17 -5.551115123125783e-17" rpy="0 0 0"/>
+    <mass value="0.07398450699203961"/>
+    <inertia ixx="4e-06" iyy="7e-06" izz="7e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.533 0.03215 -0.3541" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/right_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.533 0.03215 -0.3541" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/right_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rotating_base_1">
+  <inertial>
+    <origin xyz="0.0003544621140304518 -9.672671455459492e-05 0.10542891269925475" rpy="0 0 0"/>
+    <mass value="27.034416417677345"/>
+    <inertia ixx="0.405442" iyy="0.397659" izz="0.772022" ixy="-1e-06" iyz="1e-06" ixz="0.000172"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/rotating_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/rotating_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="turret_base_1">
+  <inertial>
+    <origin xyz="0.00016054456809486622 0.06839484907330823 0.11355907695565969" rpy="0 0 0"/>
+    <mass value="33.48743254001071"/>
+    <inertia ixx="0.656599" iyy="0.318745" izz="0.816932" ixy="0.000411" iyz="-0.030468" ixz="8.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0768" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/turret_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0768" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://turret_gun_description/meshes/turret_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="turret_joint" type="revolute">
+  <origin xyz="0.0 0.12 0.2348" rpy="0 0 0"/>
+  <parent link="turret_base_1"/>
+  <child link="turret_arm_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="1.22173" lower="-0.174533" effort="100" velocity="1"/>
+</joint>
+
+<joint name="Rigid58" type="fixed">
+  <origin xyz="-0.05 -0.06 0.003" rpy="0 0 0"/>
+  <parent link="turret_arm_1"/>
+  <child link="damper_1"/>
+</joint>
+
+<joint name="Rigid59" type="fixed">
+  <origin xyz="-0.05 -0.1812 0.003" rpy="0 0 0"/>
+  <parent link="turret_arm_1"/>
+  <child link="damper__1__1"/>
+</joint>
+
+<joint name="Slider60" type="fixed">
+  <origin xyz="-0.0625 0.0 0.012" rpy="0 0 0"/>
+  <parent link="damper_1"/>
+  <child link="damper_piston_1"/>
+  <!-- <axis xyz="-1.0 0.0 0.0"/>
+  <limit upper="0.0" lower="-0.03" effort="100" velocity="1"/> -->
+</joint>
+
+<joint name="Slider61" type="fixed">
+  <origin xyz="-0.0625 0.0 0.012" rpy="0 0 0"/>
+  <parent link="damper__1__1"/>
+  <child link="damper_piston__1__1"/>
+  <!-- <axis xyz="1.0 0.0 0.0"/>
+  <limit upper="0.03" lower="0.0" effort="100" velocity="1"/> -->
+</joint>
+
+<joint name="Slider62" type="fixed">
+  <origin xyz="-0.27 -0.03 0.0" rpy="0 0 0"/>
+  <parent link="turret_arm_1"/>
+  <child link="gun_mount_1"/>
+  <!-- <axis xyz="-1.0 0.0 0.0"/>
+  <limit upper="0.0" lower="-0.03" effort="100" velocity="100"/> -->
+</joint>
+
+<joint name="Rigid65" type="fixed">
+  <origin xyz="-0.214 -0.0906 0.008" rpy="0 0 0"/>
+  <parent link="gun_mount_1"/>
+  <child link="hog_saddle_1"/>
+</joint>
+
+<joint name="Rigid66" type="fixed">
+  <origin xyz="-0.334 0.1816 0.1876" rpy="0 0 0"/>
+  <parent link="hog_saddle_1"/>
+  <child link="hog_saddle_base_1"/>
+</joint>
+
+<joint name="Rigid67" type="fixed">
+  <origin xyz="0.02 0.0 0.0" rpy="0 0 0"/>
+  <parent link="hog_saddle_base_1"/>
+  <child link="tighter_1"/>
+</joint>
+
+<joint name="Rigid68" type="fixed">
+  <origin xyz="-0.284104 0.2496 0.1426" rpy="0 0 0"/>
+  <parent link="hog_saddle_1"/>
+  <child link="m4_carbine_rifle_1"/>
+</joint>
+
+<joint name="Rigid69" type="fixed">
+  <origin xyz="-0.263 -0.0906 0.013" rpy="0 0 0"/>
+  <parent link="gun_mount_1"/>
+  <child link="sensor_module_1"/>
+</joint>
+
+<joint name="Rigid70" type="fixed">
+  <origin xyz="0.0 0.03155 0.0295" rpy="0 0 3.14"/>
+  <parent link="sensor_module_1"/>
+  <child link="left_camera_1"/>
+</joint>
+
+<joint name="Rigid71" type="fixed">
+  <origin xyz="0.0 -0.03155 0.0295" rpy="0 0 3.14"/>
+  <parent link="sensor_module_1"/>
+  <child link="right_camera_1"/>
+</joint>
+
+<joint name="base_joint" type="revolute">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rotating_base_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <limit upper="3.141593" lower="0.0" effort="100" velocity="1"/>
+</joint>
+
+<joint name="turret_base_joint" type="revolute">
+  <origin xyz="0.0 0.0 0.0768" rpy="0 0 0"/>
+  <parent link="rotating_base_1"/>
+  <child link="turret_base_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <limit upper="3.141593" lower="0.0" effort="100" velocity="1"/>
+</joint>
+
+</robot>

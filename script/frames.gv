@@ -1,0 +1,22 @@
+digraph G {
+"turret_arm_1" -> "damper_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1215.330 sec old)\nBuffer length: 0.000 sec\n"];
+"turret_base_1" -> "turret_arm_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1215.237 ( 0.093 sec old)\nBuffer length: 4.800 sec\n"];
+"turret_arm_1" -> "damper__1__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1215.330 sec old)\nBuffer length: 0.000 sec\n"];
+"gun_mount_1" -> "hog_saddle_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1215.330 sec old)\nBuffer length: 0.000 sec\n"];
+"turret_arm_1" -> "gun_mount_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1215.237 ( 0.093 sec old)\nBuffer length: 4.800 sec\n"];
+"hog_saddle_1" -> "hog_saddle_base_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1215.330 sec old)\nBuffer length: 0.000 sec\n"];
+"hog_saddle_base_1" -> "tighter_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1215.330 sec old)\nBuffer length: 0.000 sec\n"];
+"hog_saddle_1" -> "m4_carbine_rifle_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1215.330 sec old)\nBuffer length: 0.000 sec\n"];
+"gun_mount_1" -> "sensor_module_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1215.330 sec old)\nBuffer length: 0.000 sec\n"];
+"sensor_module_1" -> "left_camera_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1215.330 sec old)\nBuffer length: 0.000 sec\n"];
+"sensor_module_1" -> "right_camera_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1215.330 sec old)\nBuffer length: 0.000 sec\n"];
+"world" -> "base_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1215.330 sec old)\nBuffer length: 0.000 sec\n"];
+"damper_1" -> "damper_piston_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1215.237 ( 0.093 sec old)\nBuffer length: 4.800 sec\n"];
+"damper__1__1" -> "damper_piston__1__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1215.237 ( 0.093 sec old)\nBuffer length: 4.800 sec\n"];
+"base_link" -> "rotating_base_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1215.237 ( 0.093 sec old)\nBuffer length: 4.800 sec\n"];
+"rotating_base_1" -> "turret_base_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1215.237 ( 0.093 sec old)\nBuffer length: 4.800 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1215.330"[ shape=plaintext ] ;
+ }->"world";
+}
