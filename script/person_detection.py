@@ -48,7 +48,7 @@ class cameraObject:
     def depthCallback(self, msg):
         depth_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="passthrough")
         if self.human_center_x is not None and self.human_center_y is not None:
-            self.distance = depth_image[self.human_center_x, self.human_center_y] 
+            self.distance = depth_image[self.human_center_y, self.human_center_x] 
             print(self.distance)
 
 

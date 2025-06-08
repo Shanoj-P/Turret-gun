@@ -18,6 +18,8 @@ class StereoDepthNode:
         self.D1 = cv_file.getNode("D1").mat()
         self.K2 = cv_file.getNode("K2").mat()
         self.D2 = cv_file.getNode("D2").mat()
+        self.R = cv_file.getNode("R").mat()
+        self.T = cv_file.getNode("T").mat()
         self.R1 = cv_file.getNode("R1").mat()
         self.R2 = cv_file.getNode("R2").mat()
         self.P1 = cv_file.getNode("P1").mat()
@@ -50,7 +52,7 @@ class StereoDepthNode:
         rospy.Subscriber("/camera/left/image_raw", Image, self.left_callback)
         rospy.Subscriber("/camera/right/image_raw", Image, self.right_callback)
 
-        self.disp_pub = rospy.Publisher("/stereo/disparity", Image, queue_size=1)
+        self.disp_pub = rospy.Publisher("/stereo/disparity", Image, queue_size=10)
 
         rospy.loginfo("Stereo depth node initialized.")
         rospy.spin()
@@ -91,9 +93,11 @@ class StereoDepthNode:
         disparity = self.stereo.compute(grayL, grayR).astype(np.float32) / 16.0
         points_3D = cv2.reprojectImageTo3D(disparity, self.Q)
 
-        # Center pixel depth
+        # # Center pixel depth
         h, w = disparity.shape
+        print("%.2f, %.2f",(h,w))
         center_disp = disparity[h // 2, w // 2]
+        # print(center_disp)
         if center_disp > 0:
             Z = points_3D[h // 2, w // 2, 2]
             rospy.loginfo(f"Center disparity: {center_disp:.2f}, Depth (Z): {Z:.2f} mm")

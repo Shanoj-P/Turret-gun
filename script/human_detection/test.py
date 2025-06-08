@@ -2,7 +2,7 @@ import cv2
 from ultralytics import YOLO
 
 # Load the trained model
-model = YOLO('/home/shanoj/catkin_ws/src/turret_gun_description/script/human_detection/runs/detect/train6/weights/best.pt')  # Provide the path to your 'best.pt' model
+model = YOLO('/home/shanoj/catkin_ws/src/turret_gun_description/script/human_detection/runs/detect/train10/weights/best.pt')  # Provide the path to your 'best.pt' model
 
 # Initialize the webcam
 cap = cv2.VideoCapture(0)  # 0 is usually the default camera, change if you have other cameras connected

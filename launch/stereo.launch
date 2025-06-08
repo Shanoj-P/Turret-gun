@@ -4,7 +4,7 @@
 
     <group ns="stereo">
         <node pkg="usb_cam" type="usb_cam_node" name="left_camera" output="screen">
-            <param name="video_device" value="/dev/video2"/>
+            <param name="video_device" value="/dev/video4"/>
             <param name="image_width" value="640"/>
             <param name="image_height" value="480"/>
             <param name="pixel_format" value="yuyv"/>
@@ -18,7 +18,7 @@
         </node>
 
         <node pkg="usb_cam" type="usb_cam_node" name="right_camera" output="screen">
-            <param name="video_device" value="/dev/video0"/>
+            <param name="video_device" value="/dev/video2"/>
             <param name="image_width" value="640"/>
             <param name="image_height" value="480"/>
             <param name="pixel_format" value="yuyv"/>
